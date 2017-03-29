@@ -2,9 +2,28 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <style>
+
+            h1 {
+                color: red;
+                animation: blinker 1s linear infinite; 
+            }
+
+            em {
+                animation: blinker 1s linear infinite;
+                font-style: normal; 
+           }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0; 
+                } 
+            }
+
+        </style>
     </head>
     <body>
         <h1>GRANULAT</h1>
-        <h3>Deutschpunk und Bier aus Bad Schwelmstädt</h3>
+        <h3>Deutschpunk und <em>Bier</em> aus Bad Schwelmstädt</h3>
     </body>
 </html>
