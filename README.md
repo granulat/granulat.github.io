@@ -1,1 +1,3 @@
-# granulat.github.io
+# GRANULAT
+
+### Deutschpunk und Bier aus Bad Schwelmstädt
