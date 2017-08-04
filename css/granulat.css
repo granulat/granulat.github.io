@@ -37,4 +37,18 @@ img {
 .granulat_frame {
     max-width: 66rem;
     margin: auto;
+    overflow: hidden;
+}
+p {
+    padding-left: 100%; 
+    animation-name: scrolly;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    white-space: nowrap;
+    display: inline-block;
+}
+@keyframes scrolly {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%,0); }
 }
