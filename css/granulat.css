@@ -6,7 +6,7 @@ body {
 }
 em {
     animation: blinker 1s linear infinite;
-    font-style: normal; 
+    font-style: normal;
     display: block;
     text-align: center;
     margin-bottom: 1rem;
@@ -17,8 +17,8 @@ a {
 }
 @keyframes blinker {
     50% {
-        opacity: 0; 
-    } 
+        opacity: 0;
+    }
 }
 iframe {
     display: block;
@@ -40,7 +40,7 @@ img {
     overflow: hidden;
 }
 p {
-    padding-left: 100%; 
+    padding-left: 100%;
     animation-name: scrolly;
     animation-duration: 20s;
     animation-timing-function: linear;
@@ -51,4 +51,21 @@ p {
 @keyframes scrolly {
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-100%,0); }
+}
+.card {
+    width: 26rem;
+    max-width: 95vw;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: grey;
+    border-radius: 2rem;
+    display: inline-block;
+    border-width: 2rem;
+    border-style: ridge;
+}
+.card div {
+    padding: 0.5rem;
+}
+hr {
+    border-width: 1rem;
 }

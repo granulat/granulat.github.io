@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="css/granulat.css" \>
     </head>
@@ -16,8 +17,38 @@
             <em>
                 <a href="mailto:granulatpunk@gmail.com">Kontakt</a>
             </em>
-            <div id="granulat_gallery"></div>
+            <hr>
+            <h1>Granulat sind:</h1>
+            <h3 id="loading"></h3>
+            <div id="band"></div>
         </div>
-        <!-- script src="js/granulat.js"></script -->
+        <script src="js/template.js"></script>
+        <script src="js/quotes.js"></script>
+        <script src="js/granulat.js"></script>
+        <script>
+
+            let names = ['Cruizer', 'Ralle', 'Russel','Pocke','Volker'];
+
+            names = shuffle_arr (names);
+
+            let band = document.getElementById("band");
+            let loading = document.getElementById("loading");
+
+            loading.innerHTML = 'loading.';
+
+            async function gen_band() {
+                 for (person of names) {
+                    band.innerHTML += template
+                                    .replace(/{{name}}/g, person)
+                                    .replace(/{{info}}/g, gen_info(quotes));
+                    for (let i=0; i<4; i++) {
+                        await sleep(500);
+                        loading.innerHTML +='.';
+                    }
+                }
+                loading.innerHTML = '';
+            }
+            gen_band();
+        </script>
     </body>
 </html>

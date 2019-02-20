@@ -1,25 +1,27 @@
 "use strict";
 
-function fill_gallery(data) {
-    var gallery_template = `
-                            <a href='{{link}}' target='_blank' style="text-decoration: none;">
-                                <img class="gallery_image" src='{{image}}'></img>
-                            </a>
-                            `;
-    for (var i = 0; i < data.data.length; i++) {
-        var rendered = gallery_template
-                            .replace('{{image}}',data.data[i].images.low_resolution.url)
-                            .replace('{{link}}',data.data[i].link);
-        document.getElementById('granulat_gallery').innerHTML += rendered;
-     }
+function shuffle_arr(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
+function rand_int(max_int) {
+    return Math.floor(Math.random() * max_int)
+}
 
+function gen_info( quotes ) {
+    let i = rand_int(quotes.length);
+    let j = i;
+    do {
+        j = rand_int(quotes.length);
+        console.log(j);
+    } while (i === j)
+    return quotes[i] + ' ' + quotes[j];
+}
 
-
-var instagram_gallery = document.createElement('script');
-instagram_gallery.src = 'https://api.instagram.com/v1/users/granulatpunk/media/recent/?access_token=5524419453.ea37b3a.25fcce19a525482fad173b017986d8cf&count=18&callback=fill_gallery';
-
-
-document.getElementsByTagName('head')[0].appendChild(instagram_gallery);
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
