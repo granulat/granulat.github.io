@@ -62,6 +62,7 @@ p {
     display: inline-block;
     border-width: 2rem;
     border-style: ridge;
+    box-sizing: border-box;
 }
 .card div {
     padding: 0.5rem;
