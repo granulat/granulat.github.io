@@ -3,52 +3,51 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="css/granulat.css" \>
+        <link rel="stylesheet" href="css/granulat_dos.css" \>
+        <link rel="stylesheet" href="css/granulat_fx.css" \>
     </head>
-    <body>
-        <div class="granulat_frame">
-            <img src="pic/0010618890_100.png"></img>
-            <iframe src="https://bandcamp.com/EmbeddedPlayer/album=1398238617/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=true/" seamless><a href="http://granulat.bandcamp.com/album/besoffensive">Besoffensive by Granulat</a></iframe>
-            <br>
-            <p>
-                +++ ACHTUNG +++ ACHTUNG +++ Das Tape gibts für 5 Euro! Einfach ne Mail schreiben! +++
-            </p>
-            <br>
-            <em>
-                <a href="mailto:granulatpunk@gmail.com">Kontakt</a>
-            </em>
-            <hr>
-            <h1>Granulat sind:</h1>
-            <h3 id="loading"></h3>
-            <div id="band"></div>
-        </div>
-        <script src="js/template.js"></script>
-        <script src="js/quotes.js"></script>
-        <script src="js/granulat.js"></script>
-        <script>
-
-            let names = ['Cruizer', 'Ralle', 'Rassel','Pocke','Volker'];
-
-            names = shuffle_arr (names);
-
-            let band = document.getElementById("band");
-            let loading = document.getElementById("loading");
-
-            loading.innerHTML = 'loading.';
-
-            async function gen_band() {
-                 for (person of names) {
-                    band.innerHTML += template
-                                    .replace(/{{name}}/g, person)
-                                    .replace(/{{info}}/g, gen_info(quotes));
-                    for (let i=0; i<4; i++) {
-                        await sleep(500);
-                        loading.innerHTML +='.';
-                    }
-                }
-                loading.innerHTML = '';
-            }
-            gen_band();
-        </script>
+    <body> 
+        <template id="band_member_template">
+            <li class="card">
+                <h2></h2>
+                <figure>
+                    <img />
+                    <figcaption></figcaption>
+                </figure>
+            </li>
+        </template>
+        <main>
+            <article>
+                <section class="highlight">
+                    <h1> GRANULAT </h1>
+                    <p class"blink">wirklich immer bier am Start</p>
+                    <p class="scroll">
+                        +++ ACHTUNG +++ ACHTUNG +++ Das Tape gibts für 5 Euro! Einfach ne Mail schreiben! +++
+                    </p>
+                </section>
+                <section>
+                    <img class="to8bit width-280" src="pic/0010618890_100.png" />
+                    <a href="mailto:granulatpunk@gmail.com">Kontakt</a>
+                </section>
+                <section>
+                    <canvas id="canvas"></canvas>
+                </section>
+                <section>
+                    <textarea id="term"></textarea>
+                </section>
+                <section>
+                    <iframe src="https://bandcamp.com/EmbeddedPlayer/album=1398238617/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=true/" seamless><a href="http://granulat.bandcamp.com/album/besoffensive">Besoffensive by Granulat</a></iframe>
+                </section>
+                <section>
+                    <h1>Granulat sind:</h1>
+                    <h3 id="loading"></h3>
+                    <div id="band"></div>
+                </section>
+            </article>
+        </main>
+        <script src="js/granulat_term.js"></script>
+        <script src="js/granulat_canvas.js"></script>
+        <script src="js/granulat_to8bit.js"></script>
+        <script type="module" src="js/granulat_band.js"></script>
     </body>
 </html>

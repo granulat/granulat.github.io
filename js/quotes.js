@@ -1,3 +1,4 @@
+export {quotes};
 "use strict";
 /*
 https://github.com/rusty-software/bobrosslipsum/
@@ -406,3 +407,4 @@ var quotes = ["That's a crooked tree. We'll send him to Washington.",
     "By now you should be quite happy about what's happening here.",
     "A fan brush can be your best friend."
 ];
+

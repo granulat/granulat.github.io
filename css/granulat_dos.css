@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+:root {
+    /* CGA Colors */
+    --black: #000000;
+    --dark_gray: #555555;
+    --blue: #0000AA;
+    --light_blue: #5555FF;
+    --green: #00AA00;
+    --light_green :#55FF55;
+    --cyan: #00AAAA;
+    --light_cyan: #55FFFF;
+    --red: #AA0000;
+    --light_red: #FF5555;
+    --magenta: #AA00AA;
+    --light_magenta: #FF55FF;
+    --brown: #AA5500;
+    --yellow: #FFFF55;
+    --light_gray: #AAAAAA;
+    --white: #FFFFFF;  
+    /* settings */
+    /* colors */
+    --color_background: var(--blue);
+    --color_font: var(--light_gray);
+    --color_highlight: var(--cyan);
+    --color_font_highlight: var(--white);
+    --color_font_headings: var(--white);
+    --color_link_background: var(--light_gray);
+    --color_link_shadow: var(--black);
+    --color_font_link: var(--black);
+    --color_term_background: var(--dark_gray);
+    --color_term_font: var(--yellow);
+    /* sizing */
+    --size_link_shadow: 0.2rem;
+    --size_link_padding: 0.2rem;
+}
+* {
+    box-sizing: border-box;
+    font-family: "VT323", monospace;
+}
+html {
+    font-size: 28px;
+}
+main {
+    background: var(--color_background);
+    color: var(--color_font);
+}
+a, button, .link {
+    display: inline-block;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: var(--size_link_shadow);
+    margin-bottom: var(--size_link_shadow);
+    padding: var(--size_link_padding);
+    background: var(--color_link_background);
+    color: var(--color_font_link);
+    text-decoration: none;
+    border: 0;
+    user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: var(--size_link_shadow) var(--size_link_shadow) 0 var(--color_link_shadow);
+}
+a:active, button:active, .link:active {
+    margin-left: var(--size_link_shadow);
+    margin-top: var(--size_link_shadow);
+    margin-right: 0; 
+    margin-bottom: 0; 
+    box-shadow: 0 0 0;
+}
+h1, h2, h3, h4, h5 ,h6 {
+    color: var(--color_font_headings);
+    font-size: 1rem;
+}
+h1 {
+    font-size: 2rem;
+}
+img {
+    width: 100%;
+    padding: 1rem;
+    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+    image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+iframe {
+    display: block;
+    border: 0;
+    width: 44rem;
+    max-width: 100%;
+    height: 35rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article {
+    max-width: 800px;
+    margin: auto;
+    padding: 0.5rem;
+}
+section {
+    padding: 1rem;
+    overflow: hidden;
+}
+#term {
+    background: var(--color_term_background);
+    color: var(--color_term_font);
+    caret-color: var(--color_term_background);
+    scrollbar-color: var(--color_term_font) var(--color_term_background);
+    padding: 0.2rem;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 12rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+#canvas {
+    display: block;
+    width: 400px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+.highlight {
+    border: 0.5rem double var(--color_font_highlight);
+    background-color: var(--color_highlight);
+    color: var(--color_font_highlight);
+}
+.pixel_filter {
+    filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='b' x='0' y='0'%3E%3CfeFlood x='4' y='4' height='2' width='2'/%3E%3CfeComposite width='10' height='10'/%3E%3CfeTile result='a'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='in'/%3E%3CfeMorphology operator='dilate' radius='5'/%3E%3C/filter%3E%3C/svg%3E#b");
+}
